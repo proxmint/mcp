@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.proxmint/mcp",
+  "title": "Proxmint",
+  "description": "Pricing, balance, usage, proxy lines with targeting and connection checks for Proxmint proxies",
+  "version": "1.0.0",
+  "websiteUrl": "https://proxmint.com/docs/mcp",
+  "repository": { "url": "https://github.com/proxmint/mcp", "source": "github" },
+  "icons": [
+    { "src": "https://proxmint.com/partners/proxmint-icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://proxmint.com/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Proxmint API key as 'Bearer pmk_...' (dashboard > Settings). get_pricing works without one.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string",
+          "placeholder": "Bearer pmk_..."
+        }
+      ]
+    }
+  ]
+}
