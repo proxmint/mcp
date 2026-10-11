@@ -2,12 +2,21 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.proxmint/mcp",
   "title": "Proxmint",
-  "description": "Pricing, balance, usage, proxy lines with targeting and connection checks for Proxmint proxies",
-  "version": "1.0.0",
+  "description": "Fetch pages through your proxies, plus proxy lines, balance, usage and pricing for Proxmint",
+  "version": "1.1.0",
   "websiteUrl": "https://proxmint.com/docs/mcp",
-  "repository": { "url": "https://github.com/proxmint/mcp", "source": "github" },
+  "repository": {
+    "url": "https://github.com/proxmint/mcp",
+    "source": "github"
+  },
   "icons": [
-    { "src": "https://proxmint.com/partners/proxmint-icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] }
+    {
+      "src": "https://proxmint.com/partners/proxmint-icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
   ],
   "remotes": [
     {
