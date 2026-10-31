@@ -42,8 +42,15 @@ This repository is also a Claude plugin (`.claude-plugin/plugin.json`) and a Cur
 | `proxmint-targeting` | Builds proxy usernames for country, state, city, ZIP or ASN targeting and sticky sessions |
 | `proxmint-troubleshooting` | Finds the cause of 407, 403, 502 and 503 errors, failed tunnels, wrong-country exits and IP leaks |
 
-The plugin connects to one server only, `https://proxmint.com/api/mcp`, and sends it the tool calls Claude makes.
-The skills are instructions and run nothing on their own.
+What the plugin sends, and where:
+
+- `https://proxmint.com/api/mcp`, the declared MCP server: the tool calls Claude makes.
+- `gw.proxmint.com`, Proxmint's proxy gateway: when the setup or troubleshooting skill tests a connection (for
+  example `curl -x "http://$PROXMINT_USERNAME:$PROXMINT_PASSWORD@gw.proxmint.com:823" https://api.ipify.org`), your
+  own proxy login goes to the gateway, read from your environment, never written into a file.
+- `https://api.ipify.org`: that test request, sent through the proxy, which answers with the exit IP.
+
+Nothing else is contacted, and the skills run a test only when you ask to check or debug a connection.
 
 - Claude (`.mcp.json`): `get_pricing` works straight away. The first account tool asks you to sign in to Proxmint
   in the browser, and the sign-in creates a read-only key for Claude that you can revoke under **Settings**.
