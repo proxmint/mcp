@@ -31,6 +31,19 @@ Create a key under **Settings** in the [dashboard](https://proxmint.com/dashboar
 `pmk_` and are read-only. `generate_proxies` returns your proxy password, because a working line needs it, so
 keep the key out of shared configs and revoke it in Settings if it leaks.
 
+## Cursor plugin
+
+This repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). It connects the hosted server through
+`mcp.json` and adds three skills:
+
+| Skill | What it does |
+| --- | --- |
+| `proxmint-proxy-setup` | Configures curl, Python (requests, httpx, aiohttp, Scrapy), Node.js, Go, Playwright, Puppeteer or Selenium to use Proxmint, with credentials read from the environment |
+| `proxmint-targeting` | Builds proxy usernames for country, state, city, ZIP or ASN targeting and sticky sessions |
+| `proxmint-troubleshooting` | Finds the cause of 407, 403, 502 and 503 errors, failed tunnels, wrong-country exits and IP leaks |
+
+After installing, set `PROXMINT_API_KEY` to your `pmk_` key under **Plugins → Configure**.
+
 ## Connect
 
 Claude Code:
@@ -69,7 +82,7 @@ Claude Desktop (`claude_desktop_config.json`), through `mcp-remote`:
 
 ## Limits and privacy
 
-Account tools share the customer API's limit of 60 requests a minute per IP. The server keeps nothing and does not
+Account tools share the customer API's limit of 60 requests a minute per key. The server keeps nothing and does not
 log tool arguments, results or keys. Full docs: [proxmint.com/docs/mcp](https://proxmint.com/docs/mcp).
 
 ## Links

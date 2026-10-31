@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "proxmint": {
+      "url": "https://proxmint.com/api/mcp",
+      "headers": { "Authorization": "Bearer ${PROXMINT_API_KEY}" }
+    }
+  }
+}

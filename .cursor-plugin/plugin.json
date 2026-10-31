@@ -1,0 +1,28 @@
+{
+  "name": "proxmint",
+  "displayName": "Proxmint",
+  "version": "1.0.0",
+  "description": "Use your Proxmint residential, datacenter and mobile proxies from Cursor. Read a page as a visitor from another country would, generate proxy lines with country, city and sticky-session targeting, test a connection, and check balance and usage. Three skills set up proxies in code, build targeting usernames and debug failing connections.",
+  "author": {
+    "name": "Proxmint",
+    "email": "support@proxmint.com",
+    "url": "https://proxmint.com"
+  },
+  "homepage": "https://proxmint.com",
+  "repository": "https://github.com/proxmint/mcp",
+  "license": "MIT",
+  "keywords": ["proxies", "residential-proxies", "geo-targeting", "web-scraping", "playwright", "mcp"],
+  "logo": "assets/logo.png",
+  "skills": "skills",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "PROXMINT_API_KEY": {
+        "type": "string",
+        "title": "Proxmint API key",
+        "description": "Read-only key starting with pmk_. Create one at https://proxmint.com/dashboard/settings"
+      }
+    },
+    "required": ["PROXMINT_API_KEY"]
+  }
+}
