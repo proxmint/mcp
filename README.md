@@ -31,10 +31,10 @@ Create a key under **Settings** in the [dashboard](https://proxmint.com/dashboar
 `pmk_` and are read-only. `generate_proxies` returns your proxy password, because a working line needs it, so
 keep the key out of shared configs and revoke it in Settings if it leaks.
 
-## Cursor plugin
+## Claude and Cursor plugin
 
-This repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). It connects the hosted server through
-`mcp.json` and adds three skills:
+This repository is also a Claude plugin (`.claude-plugin/plugin.json`) and a Cursor plugin
+(`.cursor-plugin/plugin.json`). Both connect the hosted server and add three skills:
 
 | Skill | What it does |
 | --- | --- |
@@ -42,7 +42,12 @@ This repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). It conne
 | `proxmint-targeting` | Builds proxy usernames for country, state, city, ZIP or ASN targeting and sticky sessions |
 | `proxmint-troubleshooting` | Finds the cause of 407, 403, 502 and 503 errors, failed tunnels, wrong-country exits and IP leaks |
 
-After installing, set `PROXMINT_API_KEY` to your `pmk_` key under **Plugins → Configure**.
+The plugin connects to one server only, `https://proxmint.com/api/mcp`, and sends it the tool calls Claude makes.
+The skills are instructions and run nothing on their own.
+
+- Claude (`.mcp.json`): `get_pricing` works straight away. The first account tool asks you to sign in to Proxmint
+  in the browser, and the sign-in creates a read-only key for Claude that you can revoke under **Settings**.
+- Cursor (`mcp.json`): after installing, set `PROXMINT_API_KEY` to your `pmk_` key under **Plugins → Configure**.
 
 ## Connect
 
@@ -91,6 +96,7 @@ log tool arguments, results or keys. Full docs: [proxmint.com/docs/mcp](https://
 - [Pricing](https://proxmint.com/pricing)
 - [Customer API](https://proxmint.com/docs/api)
 - [Targeting and sessions](https://proxmint.com/docs/targeting)
+- [Privacy](https://proxmint.com/privacy)
 
 ## License
 
